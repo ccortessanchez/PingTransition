@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A90169F1FEBEFD0002A1391 /* TransitionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90169E1FEBEFD0002A1391 /* TransitionCoordinator.swift */; };
 		18FB34CA1FDF4832000109DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FB34C91FDF4832000109DA /* LaunchScreen.xib */; };
 		AE48CFF71F7A00B9004D227F /* WhiteViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CFF61F7A00B9004D227F /* WhiteViewControllerLayout.swift */; };
 		AE48CFF91F7A039D004D227F /* BlackViewControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE48CFF81F7A039D004D227F /* BlackViewControllerLayout.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A90169E1FEBEFD0002A1391 /* TransitionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionCoordinator.swift; sourceTree = "<group>"; };
 		18FB34C91FDF4832000109DA /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		AE48CFF61F7A00B9004D227F /* WhiteViewControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteViewControllerLayout.swift; sourceTree = "<group>"; };
 		AE48CFF81F7A039D004D227F /* BlackViewControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackViewControllerLayout.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				AEDA00E01F40B781003F8013 /* Assets.xcassets */,
 				18FB34C91FDF4832000109DA /* LaunchScreen.xib */,
 				AEDA00E51F40B781003F8013 /* Info.plist */,
+				0A90169E1FEBEFD0002A1391 /* TransitionCoordinator.swift */,
 			);
 			path = Pong;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				AE48CFF91F7A039D004D227F /* BlackViewControllerLayout.swift in Sources */,
 				AE48CFF71F7A00B9004D227F /* WhiteViewControllerLayout.swift in Sources */,
 				AEDA00DA1F40B781003F8013 /* AppDelegate.swift in Sources */,
+				0A90169F1FEBEFD0002A1391 /* TransitionCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
