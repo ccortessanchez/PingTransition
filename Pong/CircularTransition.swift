@@ -16,6 +16,8 @@ protocol CircleTransitionable {
 
 class CircularTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
+    weak var context: UIViewControllerContextTransitioning?
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.5
     }
@@ -27,6 +29,9 @@ class CircularTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 transitionContext.completeTransition(false)
                 return
         }
+        
+        context = transitionContext
+        
         let containerView = transitionContext.containerView
         containerView.addSubview(snapshot)
         fromVC.mainView.removeFromSuperview()
@@ -50,6 +55,32 @@ class CircularTransition: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animate(toView: UIView, fromTriggerButton triggerButton: UIButton) {
+        let rect = CGRect(x: triggerButton.frame.origin.x, y: triggerButton.frame.origin.y, width: triggerButton.frame.width, height: triggerButton.frame.width)
+        let circleMaskPathInitial = UIBezierPath(ovalIn: rect)
         
+        let fullHeight = toView.bounds.height
+        let extremePoint = CGPoint(x: triggerButton.center.x, y: triggerButton.center.y - fullHeight)
+        let radius = sqrt((extremePoint.x*extremePoint.x)+(extremePoint.y*extremePoint.y))
+        let circleMaskPathFinal = UIBezierPath(ovalIn: triggerButton.frame.insetBy(dx: -radius, dy: -radius))
+        
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = circleMaskPathFinal.cgPath
+        toView.layer.mask = maskLayer
+        
+        let maskLayerAnimation = CABasicAnimation(keyPath: "path")
+        maskLayerAnimation.fromValue = circleMaskPathInitial.cgPath
+        maskLayerAnimation.toValue = circleMaskPathFinal.cgPath
+        maskLayerAnimation.duration = 0.15
+        
+        maskLayerAnimation.delegate = self
+        
+        maskLayer.add(maskLayerAnimation, forKey: "path")
+        
+    }
+}
+
+extension CircularTransition: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        context?.completeTransition(true)
     }
 }
