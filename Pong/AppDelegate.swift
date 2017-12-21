@@ -34,6 +34,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
+  let transitionCoordinator = TransitionCoordinator()
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     let whiteVC = WhiteViewController()
@@ -41,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     let nav = UINavigationController(rootViewController: whiteVC)
     nav.isNavigationBarHidden = true
-
+    nav.delegate = transitionCoordinator
     //Add TransitionCoordinator as navigation controller's delegate
     
     
