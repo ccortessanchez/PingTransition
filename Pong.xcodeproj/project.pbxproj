@@ -83,12 +83,12 @@
 			isa = PBXGroup;
 			children = (
 				AEDA00D91F40B781003F8013 /* AppDelegate.swift */,
+				0A90169E1FEBEFD0002A1391 /* TransitionCoordinator.swift */,
+				0A9016A01FEBF856002A1391 /* CircularTransition.swift */,
 				AEDA00F11F40BE8D003F8013 /* View Controllers */,
 				AEDA00E01F40B781003F8013 /* Assets.xcassets */,
 				18FB34C91FDF4832000109DA /* LaunchScreen.xib */,
 				AEDA00E51F40B781003F8013 /* Info.plist */,
-				0A90169E1FEBEFD0002A1391 /* TransitionCoordinator.swift */,
-				0A9016A01FEBF856002A1391 /* CircularTransition.swift */,
 			);
 			path = Pong;
 			sourceTree = "<group>";

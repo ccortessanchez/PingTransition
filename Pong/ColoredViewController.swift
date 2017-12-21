@@ -35,10 +35,13 @@ enum Color {
   case black
 }
 
-class ColoredViewController: UIViewController {    
+class ColoredViewController: UIViewController, CircleTransitionable {
 
   let triggerButton = UIButton()
   let contentTextView = UITextView()
+  var mainView: UIView {
+    return view
+  }
 
   let color: Color
   
