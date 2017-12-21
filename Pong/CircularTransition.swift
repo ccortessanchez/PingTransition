@@ -45,6 +45,7 @@ class CircularTransition: NSObject, UIViewControllerAnimatedTransitioning {
         
         containerView.addSubview(toVC.mainView)
         animate(toView: toVC.mainView, fromTriggerButton: fromVC.triggerButton)
+        animateToTextView(toTextView: toVC.contentTextView, fromTriggerButton: fromVC.triggerButton)
     }
     
     func animateOldTextOffscreen(fromView: UIView) {
@@ -76,6 +77,19 @@ class CircularTransition: NSObject, UIViewControllerAnimatedTransitioning {
         
         maskLayer.add(maskLayerAnimation, forKey: "path")
         
+    }
+    
+    func animateToTextView(toTextView: UITextView, fromTriggerButton: UIButton) {
+        let originalCenter = toTextView.center
+        toTextView.alpha = 0.0
+        toTextView.center = fromTriggerButton.center
+        toTextView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        
+        UIView.animate(withDuration: 0.25, delay: 0.1, options: [.curveEaseIn], animations: {
+            toTextView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            toTextView.center = originalCenter
+            toTextView.alpha = 1.0
+        }, completion: nil)
     }
 }
 
